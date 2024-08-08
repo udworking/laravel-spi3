@@ -26,7 +26,7 @@ class UserGroupController extends Controller
     }
     public function update(Request $request, $id){
         $request->validate([
-            'group_id' => 'required|integer',
+            'group_id' => 'required|integer|unique:user_group,group_id',
             'group_name' => 'required|string|max:255',
         ]);
         $userGroup = UserGroup::findOrFail($id);
@@ -38,7 +38,7 @@ class UserGroupController extends Controller
     }
     public function store(Request $request){
         $request->validate([
-            'group_id' => 'required|integer',
+            'group_id' => 'required|integer|unique:user_group,group_id',
             'group_name' => 'required|string|max:255',
         ]);
         UserGroup::create($request->only(['group_id', 'group_name']));
