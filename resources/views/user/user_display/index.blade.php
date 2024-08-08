@@ -132,6 +132,7 @@
         <table>
             <thead>
                 <tr class>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Group ID</th>
@@ -143,6 +144,7 @@
             <tbody>
             @foreach($users as $user)
                 <tr class="font-color">
+                    <td>{{ $user->user_id }}</td>  
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->group_id }}</td>
